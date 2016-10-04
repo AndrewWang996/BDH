@@ -2,7 +2,6 @@ function x = XFromFzEta(fz, eta, eVec, e, anchorVertexIndex)
 
 % tic;
 fzbar = eta./fz;
-display(eta);
 
 % f_on_edges = 	0.5 *( eVec .* (fz_t_start + fz_t_end) + ... %Phi
 %                  conj( eVec .* (fzbb_t_start + fzbb_t_end)) ); %conj(Psy)
