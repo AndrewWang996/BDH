@@ -1,0 +1,20 @@
+%{
+
+
+%}
+function w = plotChangingEta(eta, fun, nsteps)
+
+
+n = length(eta);
+values = zeros(nsteps * n + 1);
+for i = 0 : nsteps * n
+    weight = fun( nsteps * n + 1,  i / (nsteps * n + 1.0 ));
+    values(i) = eta * weight;
+end
+
+for i = 1 : nsteps * n
+    quiver()
+end
+
+
+end

@@ -273,6 +273,9 @@ struct MatlabDeformer : public Deformer
         float t = timet;
 
 		const char *bdhimethods[] = { "metric", "eta", "nu" };
+        
+        // We pass in interpAlgorithm to specify which algorithm to use
+        // in fBdhInterpX
 		switch (interpAlgorithm) {
 		case 0:			// BDH / metric
 		case 1:			// BDH / eta
@@ -282,7 +285,7 @@ struct MatlabDeformer : public Deformer
 
 			// TODO: clear rot_trans mess, can be merged into Phi Psy
 			//matlabEval("[Phi, Psy, rot_trans] = fBdhInterp(" + std::to_string(t) + ");");
-			matlabEval("XBDHI = fBdhInterpX(" + std::to_string(t) + ");");
+            matlabEval("XBDHI = fBdhInterpX(" + std::to_string(t) + ");");
 			deformResultFromMaltab("XBDHI");
             if (M.vizVtxData) {
                 matlabEval("k = fBdhInterpkX(" + std::to_string(t) + ");");

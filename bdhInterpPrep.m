@@ -217,12 +217,16 @@ elseif strcmp( bdhiMethod, 'metric' )
     fInterpEta  = @(wt) eta*fWtFun(wt);
     fInterpFzbar = @(wt) fInterpEta(wt)./fInterpFz(wt);
     
+    fWtFun = @(w) linearWeight(numKeyFrame, w);
     
     %%
     fMyHilbertX = @(s) C*(invC0*s);
     fInterpFzX = @(wt) exp( 0.5*fMyHilbertX( fAB2LogFz2( fA(wt), fB(wt) ) ) );
+    
+    % We need to look at fInterpEtaX in order to change the linear
+    % interpolation of etaX.
     etaX = fzX.*fzbarX;
-    fInterpEtaX = @(wt) etaX*fWtFun(wt);
+    fInterpEtaX = @(wt) etaX * fWtFun(wt);
 end
 
 %% common for bdh interpolation
