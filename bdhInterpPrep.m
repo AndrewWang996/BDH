@@ -226,7 +226,8 @@ elseif strcmp( bdhiMethod, 'metric' )
     % We need to look at fInterpEtaX in order to change the linear
     % interpolation of etaX.
     etaX = fzX.*fzbarX;
-    fInterpEtaX = @(wt) etaX * fWtFun(wt);
+    fInterpEtaX = @(wt) splineWeight(etaX, wt); % fInterpEtaX = @(wt) etaX * fWtFun(wt);
+    
 end
 
 %% common for bdh interpolation
