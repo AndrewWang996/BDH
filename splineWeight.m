@@ -1,13 +1,25 @@
 function w = splineWeight(eta, t)
 
-len = size(eta, 1);
-n = size(eta, 2);
-times = linspace(0, 1, n);
-w = zeros(len, 1);
+numVertices = size(eta, 1);
+numKeyframes = size(eta, 2);
+times = linspace(0, 1, numKeyframes);
 
-for i=1:len
-   spl = spline(times, eta(i,:));
-   w(i) = ppval(spl, t);
+w = zeros(numVertices, 1);
+
+persistent splines;
+persistent interpolated;
+if isempty( splines )
+    splines = struct([]);
+end
+if isempty(interpolated)
+    interpolated = zeros(numVertices, 1);
+end
+
+for i=1:numVertices
+    if i > size(splines,2)
+        splines(i).spl = spline(times, eta(i,:));
+    end
+    w(i) = ppval(splines(i).spl, t);
 end
 
 
