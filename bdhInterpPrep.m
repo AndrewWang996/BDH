@@ -56,6 +56,7 @@ phipsy = invC0*real(C1*PhiPsyKF);
 phipsy = phipsy + repmat( imag(mean(PhiPsyKF)-mean(phipsy))*1i, size(phipsy,1), 1); % fix global translation in y-axis
 
 
+% Set the number of keyframes to 3
 numKeyFrame = size(phipsy,2)/2;
 ikeyframe = min(numKeyFrame-1, ikeyframe);
 
@@ -68,8 +69,6 @@ if ~var(keyframes), warning('interpolating same shape!'); end
 fprintf('### interpolating %d keyframes\n', numKeyFrame);
 
 if 1
-%     phipsy(:,1) = phipsy(:,1)*1i;
-%     phipsy(:,2) = phipsy(:,2)*-1i;
     fz = D0*phipsy(:, keyframes);
     fzbar = D0*phipsy(:, keyframes+1);  % fzbarbar actaully
 
@@ -78,7 +77,20 @@ if 1
     fzbarX = D*phipsy(:, keyframes+1);
 end
 
-fWtFun = @(w) linearWeight(numKeyFrame, w);
+%{
+weightType
+1: linearWeight
+2: quadraticSpline
+3: hermiteWeight
+%}
+weightType = 1;
+if weightType == 1
+    fWtFun = @(w) linearWeight(numKeyFrame, w);
+elseif weightType == 2
+    fWtFun = @(w) quadraticSplineWeight(w);
+elseif weightType == 3
+    fWtFun = @(w) hermiteWeight(numKeyFrame, w);
+end
 
 fComposeHarmonicMap = @(phipsy) phipsy(:,1:2:end)+conj(phipsy(:,2:2:end));
 
@@ -207,17 +219,23 @@ elseif strcmp( bdhiMethod, 'metric' )
     fA = @(wt) (abs(eta)*fWtFun(wt)).^2;
     fB = @(wt) dfnorm2*fWtFun(wt);
     fAB2LogFz2 = @(A, B) log( (B+sqrt(B.^2-4*A))/2 );
-    fInterpFz = @(wt) exp( 0.5*fMyHilbert( fAB2LogFz2( fA(wt), fB(wt) ) ) );
+    fInterpFz = @(wt) exp( 0.5 * fMyHilbert( fAB2LogFz2( fA(wt), fB(wt) ) ) );
 
     % conformal only
     % fInterpFz = @(wt) exp( 0.5*fMyHilbert( log( abs(fz(:,1:2)).^2*fWtFun(wt) ) ) );  % interp fz(t)^2
     % fInterpFzbar = @(wt) fzbar(:,1)*0;
 
 
-    fInterpEta  = @(wt) eta*fWtFun(wt);
+    % fInterpEta  = @(wt) eta*fWtFun(wt);
+    if weightType == 1
+        fInterpEta = @(w) eta * linearWeight(numKeyFrame, w);
+    elseif weightType == 2
+        fInterpEta = @(w) eta * quadraticSplineWeight(w);
+    elseif weightType == 3
+        fInterpEta = @(w) eta * hermiteWeight(numKeyFrame, w);
+    end
     fInterpFzbar = @(wt) fInterpEta(wt)./fInterpFz(wt);
     
-    fWtFun = @(w) linearWeight(numKeyFrame, w);
     
     %%
     fMyHilbertX = @(s) C*(invC0*s);
@@ -226,8 +244,16 @@ elseif strcmp( bdhiMethod, 'metric' )
     % We need to look at fInterpEtaX in order to change the linear
     % interpolation of etaX.
     etaX = fzX.*fzbarX;
+    if weightType == 1
+        fInterpEtaX = @(w) etaX * linearWeight(numKeyFrame, w);
+    elseif weightType == 2
+        fInterpEtaX = @(w) etaX * quadraticSplineWeight(w);
+    elseif weightType == 3
+        fInterpEtaX = @(w) etaX * hermiteWeight(numKeyFrame, w);
+    end
     % fInterpEtaX = @(wt) etaX * fWtFun(wt);
-    fInterpEtaX = @(wt) splineWeight(etaX, wt);
+    % fInterpEtaX = @(wt) etaX * quadraticSplineWeight(wt);
+    % fInterpEtaX = @(wt) splineWeight(etaX, wt);
     
 end
 
@@ -296,5 +322,5 @@ fSIG13Interp= @(wt) fR2C( metricInterp(X01, T, fWtFun(wt)', struct('anchors', in
 fARAPInterp = @(wt) fR2C( arapInterp(X01, T, fWtFun(wt)', struct('anchors', interpAnchID)) );
 fARAPLGInterp = @(wt) fR2C( arapLGInterp(X01, T, fWtFun(wt)', struct('anchors', interpAnchID)) );
 fFFMPInterp = @(wt) fR2C( FFMPInterp(X01, T, fWtFun(wt)', struct('anchors', interpAnchID)) );
-fGBDHInterp = @(wt) fR2C( GBDHInterp(X01, T, fWtFun(wt)', struct('anchors', interpAnchID)) );
+fGBDHInterp = @(wt) fR2C( GBDHInterp(X01, T, fWtFun  (wt)', struct('anchors', interpAnchID)) );
 

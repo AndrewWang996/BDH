@@ -1,3 +1,9 @@
+% remove this later
+fprintf('\n\n');
+fprintf('we are running p2p_harmonic_prep, bro');
+% clear all;
+% fprintf('running p2p_harmonic_prep.m');
+
 %% set parameters
 
 if exist('cage_offset', 'var')~=1
