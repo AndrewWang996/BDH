@@ -3,7 +3,7 @@
 
 %}
 function plotChangingEta(eta, nsteps)
-
+fprintf('\n Running plotChangingEta');
 n = length(eta);
 t = linspace(0,1,n);
 tt = linspace(0,1,(n-1)*nsteps + 1);

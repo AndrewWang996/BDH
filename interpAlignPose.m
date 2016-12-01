@@ -1,5 +1,5 @@
 function rot_trans = interpAlignPose(anchSrc, anchZ, wt)
-
+fprintf('\n Running interpAlignPose');
 if isempty(anchSrc)
     rot_trans = [1; 0];
 else

@@ -1,5 +1,5 @@
 function [angles, nbroktris] = meshAnglesFromFaceEdgeLen2(el2)
-
+fprintf('\n Running meshAnglesFromFaceEdgeLen2');
 coss = el2*[-1 1 1; 1 -1 1; 1 1 -1]*0.5 ./ sqrt(el2(:, [2 3 1]).*el2(:, [3 1 2]));
 
 % assert( all(abs(coss(:))<1 + eps) );

@@ -1,5 +1,5 @@
 function x = XFromFzEta(fz, eta, eVec, e, anchorVertexIndex)
-
+fprintf('\n Running XFromFzEta');
 % tic;
 fzbar = eta./fz;
 

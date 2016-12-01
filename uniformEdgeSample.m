@@ -1,5 +1,5 @@
 function i = uniformEdgeSample(x, n)
-
+fprintf('\n Running uniformEdgeSample');
 % try to sample the polygon evenly, while keeping original vertices
 
 assert(~isreal(x));

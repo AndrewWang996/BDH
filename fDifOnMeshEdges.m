@@ -1,5 +1,5 @@
 function [fdif, fzdif, fzbardif, f, fz, fzbar] = fDifOnMeshEdges(cage, x, e, wt, phi, psy, g, alpha)
-
+fprintf('\n Running fDifOnMeshEdges');
 if hasGPUComputing
     if ~isa(gpuArray(cage), 'gpuArray'), cage = gpuArray(cage); end
     if ~isa(gpuArray(x), 'gpuArray'),    x = gpuArray(x); end

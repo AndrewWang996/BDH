@@ -1,5 +1,5 @@
 function L = cotLaplaceFromFaceAngles(angles, t, nv)
-
+fprintf('\n Running cotLaplaceFromFaceAngles');
 % L = - sparse( t(:,[2 3 1]), t(:,[3 1 2]), cot(angles), nv, nv );
 % L = L+L';
 

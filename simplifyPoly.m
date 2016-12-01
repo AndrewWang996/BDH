@@ -1,5 +1,5 @@
 function [i, msub] = simplifyPoly(x, n, angleThresh)
-
+fprintf('\n Running simplifyPoly');
 assert(~isreal(x));
 
 % angleThresh = 0.3;

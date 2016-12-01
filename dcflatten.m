@@ -1,5 +1,5 @@
 function [vt, numbrokentriangs, flaterr, u]= dcflatten(f, nv, edgelens, opt)
-
+fprintf('\n Running dcflatten');
 if nargin<4, opt = struct(); end
 if isfield(opt, 'Theta'), Theta = opt.Theta; end
 if isfield(opt, 'ufixed'), ufixed = opt.ufixed; end

@@ -1,5 +1,5 @@
 function [x, en, status, prob, dualprob] = buildMosekSOCP(c, qobj, cones, a, bl, bu, option)
-
+fprintf('\n Running buildMosekSOCP');
 if nargin<6
     bu = bl;
 end
@@ -244,6 +244,7 @@ else
         dualprob.c = dualprob.c(nVar0+1:end);
         
         tic; [~, res] = mosekopt(cmd, dualprob, option.param); toc;
+        fprintf(res);
         x = res.sol.itr.snx;
         x = [M; a]\[beq - x(lambdaIds{2}-nVar0); bl+res.sol.itr.sux(sum(szLambdas(2:3))+1:end)];
     else

@@ -1,5 +1,5 @@
 function [fzfzbar, E] = fzfzbarMesh(x, y, t)
-
+fprintf('\n Running fzfzbarMesh');
 if isreal(x), x = complex(x(:,1), x(:,2)); end
 if isreal(y), y = complex(y(:,1), y(:,2)); end
 

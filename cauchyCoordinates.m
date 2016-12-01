@@ -4,7 +4,7 @@ function [C] = cauchyCoordinates(cage, z)
 % Input parameters:
 % cage - cage
 % z - points inside the cage
-
+fprintf('\n Running cauchyCoordinates');
 if size(z,2) == 1; z = z.'; end
 
 

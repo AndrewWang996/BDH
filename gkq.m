@@ -1,5 +1,5 @@
 function [r, errbnd] = gkq(f, a, b)
-
+fprintf('\n Running gkq');
 % http://en.wikipedia.org/wiki/Gauss%E2%80%93Kronrod_quadrature_formula
 
 x = [0.991455371120813

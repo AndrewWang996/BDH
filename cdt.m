@@ -1,5 +1,5 @@
 function [X,T]=cdt(xb, xi, nTri, keepBoundary, arg)
-
+fprintf('\n Running cdt');
 if nargin<2 || isempty(xi), xi = zeros(0, 2); end
 if nargin<4, keepBoundary = false; end
 

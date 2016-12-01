@@ -1,5 +1,5 @@
 function r = gammaFromFzFzbar(fz, fzbar)
-
+fprintf('\n Running gammaFromFzFzbar');
 % i = find( abs(fz)>1 );
 k = abs(fzbar./fz);
 i = find( abs(fz).^2 > max(k)./k );

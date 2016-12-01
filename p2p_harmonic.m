@@ -1,5 +1,4 @@
-fprintf('\n\n');
-fprintf('we are running p2p_harmonic, bro');
+fprintf('\n Running p2p_harmonic');
 
 active_set_is_on = true; %should we use the active set approach or not
 active_set_visualization = false; %visualization of active set on/off

@@ -1,5 +1,5 @@
 function [x0,y0,segments]=selfintersect(x,y)
-
+fprintf('\n Running selfintersect');
 %SELFINTERSECT Self-intersections of a curve.
 %
 %    [X0,Y0,SEGMENTS] = SELFINTERSECT(X,Y) computes the locations where

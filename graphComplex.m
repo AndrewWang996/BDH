@@ -1,5 +1,5 @@
 function w = graphComplex(complexValues)
-
+fprintf('\n Running graphComplex');
 display(complexValues);
 n = length(complexValues);
 

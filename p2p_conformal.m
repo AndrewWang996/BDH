@@ -1,6 +1,4 @@
-fprintf('\n\n');
-fprintf('we are running p2p_conformal, bro');
-
+fprintf('\n Running p2p_conformal');
 total_time = tic;
 
 f_z_prev_dense = DerivativeOfCauchyCoordinatesAtDenseSamples*Phi;

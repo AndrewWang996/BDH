@@ -1,5 +1,5 @@
 function d = distance2polygon(x, y, X, Y)
-
+fprintf('\n Running distance2polygon');
 % x = gx(:,1);
 % y = gx(:,2);
 % X = px(:,1);

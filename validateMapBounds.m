@@ -1,4 +1,5 @@
 function [phi_valid, psy_valid, t] = validateMapBounds(L, indexOfMaxL, v, fillDistanceSegments, phi_prev, phi_next, psy_prev, psy_next, DerivativeOfCauchyCoordinates, sigma2_lower_bound, sigma1_upper_bound, k_upper_bound, maxBisectionIterations, unrefinedInwardCage, use_Cauchy_argument_principle)
+fprintf('\n Running validateMapBounds');
 %given a previous solution (phi_prev, psy_prev) and a new solution (phi_next, psy_next), this function checks whether the new solution
 %is valid (satisfy the requiered bounds). The function assumes that the previous solution is valid.
 %if the new solution is not valid a line search is being performed until a valid solution is reached.

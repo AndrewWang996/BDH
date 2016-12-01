@@ -1,5 +1,5 @@
 function p = polygonOffset(x, d, useRelatived)
-
+fprintf('\n Running polygonOffset');
 if nargin<3
     useRelatived = true;
 end

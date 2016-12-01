@@ -1,3 +1,4 @@
+fprintf('\n Running bdhInterpGeneral');
 % [x, t, y] = readObj('spiral2.obj');
 % [x, t, y] = readObj('data\Bar double twist.obj');
 % [x, t, y] = readObj('elephant_skinny_trigulations.obj');

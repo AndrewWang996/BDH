@@ -1,3 +1,4 @@
+fprintf('\n Running CVBEM');
 % 
 % n = size(C_boundary, 1);
 % 

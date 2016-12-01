@@ -1,5 +1,5 @@
 function D = regularCauchyCoordDerivative(x, z)
-
+fprintf('\n Running regularCauchyCoordDerivative');
 assert( ~isreal(z) && ~isreal(x), 'input should be complex!' );
 
 n = numel(x);

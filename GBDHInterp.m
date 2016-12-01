@@ -1,5 +1,5 @@
 function [z, err] = GBDHInterp(x, t, wts, opt)
-
+fprintf('\n Running GBDHInterp');
 fC2R = @(x) [real(x) imag(x)];
 fR2C = @(x) complex(x(:,1), x(:,2));
 fNormalize = @(x) x./abs(x);

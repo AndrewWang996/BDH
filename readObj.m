@@ -1,5 +1,6 @@
 function [v, f, vt, vn] = readObj(filename)
-%
+fprintf('\n Running readObj');
+
 % obj = readObj(fname)
 %
 % This function parses wavefront object data

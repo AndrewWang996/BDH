@@ -1,9 +1,3 @@
-%{
-This function takes an integer n and a float t between [0,1].
-In practice n is commonly given as the number of keyframes while 
-    t is used as time.
-
-%}
 function w = linearWeight(n, t)
 
 t2 = t*(n-1)+1;

@@ -1,5 +1,5 @@
 function [y, nbrokentris, lcrerr, flaterr, u]= dcflatten_wrap(t, nv, edgelens, opt)
-
+fprintf('\n Running dcflatten_wrap');
 % function [y, nbrokentris, lcrerr]= dcflatten_wrap(t, nv, edgelens, Theta, ufix)
 %
 % wrapper for dcflatten

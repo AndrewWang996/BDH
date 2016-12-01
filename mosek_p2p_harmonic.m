@@ -5,7 +5,7 @@ function [status, energy, E_ARAP, E_POSITIONAL, phi, psy] = mosek_p2p_harmonic(.
     p2p_weight, sigma2_lower_bound, sigma1_upper_bound, k_upper_bound, ...
     numVirtualVertices, numFixedSamples, numEnergySamples, ...
     no_output)
-
+fprintf('\n Running mosek_p2p_harmonic');
 %%
 CCP2P = CauchyCoordinatesAtP2Phandles;
 PosP2P = [real(P2PCurrentPositions); imag(P2PCurrentPositions)];

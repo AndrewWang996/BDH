@@ -1,5 +1,5 @@
 function l = meshFaceEdgeLen2s(x, t)
-
+fprintf('\n Running meshFaceEdgeLen2s');
 if ~isreal(x),    x = [real(x) imag(x)]; end
 
 frownorm2 = @(M) sum(M.^2, 2);

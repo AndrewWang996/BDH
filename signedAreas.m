@@ -1,5 +1,5 @@
 function A = signedAreas(x, t, planar)
-
+fprintf('\n Running signedAreas');
 if ~isreal(x)
     x = [real(x) imag(x)];
 end

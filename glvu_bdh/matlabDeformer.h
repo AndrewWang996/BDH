@@ -65,7 +65,7 @@ struct MatlabDeformer : public Deformer
         nVirtualVertex(1), nFixedSample(1), nActSetPoolSample(2000), 
         p2p_weight(100.f), sigma1_upper_bound(7.f), sigma2_lower_bound(0.35f), k_upper_bound(0.8f),
 		solver_output(false), binarySearchValidMap(true), timet(0), 
-        interpAlgorithm(1) {
+        interpAlgorithm(0) {
 
         using deformerptr = MatlabDeformer*;
 
@@ -273,9 +273,6 @@ struct MatlabDeformer : public Deformer
         float t = timet;
 
 		const char *bdhimethods[] = { "metric", "eta", "nu" };
-        
-        // We pass in interpAlgorithm to specify which algorithm to use
-        // in fBdhInterpX
 		switch (interpAlgorithm) {
 		case 0:			// BDH / metric
 		case 1:			// BDH / eta
@@ -285,7 +282,7 @@ struct MatlabDeformer : public Deformer
 
 			// TODO: clear rot_trans mess, can be merged into Phi Psy
 			//matlabEval("[Phi, Psy, rot_trans] = fBdhInterp(" + std::to_string(t) + ");");
-            matlabEval("XBDHI = fBdhInterpX(" + std::to_string(t) + ");");
+			matlabEval("XBDHI = fBdhInterpX(" + std::to_string(t) + ");");
 			deformResultFromMaltab("XBDHI");
             if (M.vizVtxData) {
                 matlabEval("k = fBdhInterpkX(" + std::to_string(t) + ");");

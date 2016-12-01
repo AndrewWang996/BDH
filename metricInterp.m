@@ -1,5 +1,5 @@
 function [Z, sqrelens] = metricInterp(x, t, w, opt)
-
+fprintf('\n Running metricInterp');
 if nargin<4
     opt = struct( 'metric', 'metric tensor', 'hf', -1 );
 end

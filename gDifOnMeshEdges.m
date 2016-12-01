@@ -1,4 +1,6 @@
 function [gdif, e] = gDifOnMeshEdges(cage, x, t, phi)
+
+fprintf('\n Running gDifOnMeshEdges');
 %% compute differences of g on all the edges of the triangulation (x, t)
 
 e = [t(:) reshape(t(:, [2 3 1]), [], 1)];

@@ -3,7 +3,7 @@ function [L, indexOfMaxL] = computeLipschitzConstantOfDerivativeOfCauchy(v, samp
 %   samples - position of the vertices of the polygon. Each two consecutive vertices are considered as one segment (edge) of the polygon.
 %             the first segment endpoints are samples(1) and samples(2).
 
-
+fprintf('\n Running computeLipschitzConstantOfDerivativeOfCauchy');
     tic
 
     z_j_minus_1 = circshift(v, 1);

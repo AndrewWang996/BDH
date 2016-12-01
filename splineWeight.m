@@ -1,5 +1,5 @@
 function w = splineWeight(eta, t)
-
+fprintf('\n Running splineWeight');
 numVertices = size(eta, 1);
 numKeyframes = size(eta, 2);
 times = linspace(0, 1, numKeyframes);

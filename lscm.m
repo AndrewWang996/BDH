@@ -1,5 +1,5 @@
 function x = lscm(el, t)
-
+fprintf('\n Running lscm');
 nv = max(max(t));
 nf = size(t, 1);
 

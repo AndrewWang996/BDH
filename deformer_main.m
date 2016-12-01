@@ -1,3 +1,4 @@
+fprintf('\n Running deformer_main');
 fC2R = @(x) [real(x) imag(x)];
 fR2C = @(x) complex(x(:,1), x(:,2));
 

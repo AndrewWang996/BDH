@@ -1,4 +1,5 @@
 function numZeros = computeNumOfZerosOf_fz_inside(cage, phi, insidePolygon)
+fprintf('\n Running computeNumOfZerosOf_fz_inside');
 tic;
 argumentPrincipleIntegral = integralOfDerivativeOfLog_fz_onClosedSimplePolygon(cage, phi, insidePolygon); %this should return a real integer
 numZeros = round(real(argumentPrincipleIntegral/(2*pi*1i)));

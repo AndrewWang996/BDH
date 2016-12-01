@@ -1,5 +1,5 @@
 function M = subdivPolyMat(x, n)
-
+fprintf('\n Running subdivPolyMat');
 % try to subdivide the polygon evenly, while keeping original vertices
 
 assert(~isreal(x));

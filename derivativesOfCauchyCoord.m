@@ -1,4 +1,5 @@
 function [D, E] = derivativesOfCauchyCoord(cage, z)
+fprintf('\n Running derivativesOfCauchyCoord');
 % Compute first and second derivatives of regular Cauchy coordiantes
 %
 % Input parameters:

@@ -4,7 +4,7 @@ function [L_fz, L_fzbar] = computeLipschitzConstantOf_fz_and_fzbar_simple(L, ind
 %   Psy - the DOF of discrete Cauchy transform - anti-holomorphic part.
 %   L - mxn matrix of MOC (Lipschitz constants) of all basis functions on all segments.
 %   indexOfMaxL - mx1 vector where each element holds the index of the basis function with largest L.
-
+fprintf('\n Running computeLipschitzCOnstantOf_fz_and_fzbar_simple');
     tic
     
     indexOfMaxL = indexOfMaxL(:, 1); %use only the first column which contains the index of the maximal eleemnt in L

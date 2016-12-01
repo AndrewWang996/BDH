@@ -5,7 +5,7 @@ function [k, sigma1, sigma2, tau, arap] = computeDistortion(DerivativeOfCauchyCo
 %tau - ismetric distortion max(sigma1, 1/sigma2)
 %arap - ARAP distortion
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+fprintf('\n Running computeDistortion');
 abs_fz = abs(DerivativeOfCauchyCoordinates*Phi);
 abs_fzbar = abs(DerivativeOfCauchyCoordinates*Psy);
 

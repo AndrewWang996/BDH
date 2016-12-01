@@ -1,5 +1,5 @@
 function x = mywarning(x, v)
-
+fprintf('\n Running mywarning');
 % i = x>v+eps('single');
 i = x>v*1.01;
 if any(i)

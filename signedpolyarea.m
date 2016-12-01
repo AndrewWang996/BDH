@@ -1,5 +1,5 @@
 function A = signedpolyarea(x, y)
-
+fprintf('\n Running signedpolyarea');
 if nargin<2
     if ~isreal(x)
         x = [real(x) imag(x)];
